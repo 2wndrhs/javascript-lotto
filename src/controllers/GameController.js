@@ -1,3 +1,5 @@
+const { Console } = require('@woowacourse/mission-utils');
+
 const LottoTicket = require('../models/LottoTicket');
 
 const InputView = require('../views/InputView');
@@ -45,6 +47,10 @@ class GameController {
 
   #printWinningStatistics() {
     const statistics = this.#lottoTicket.getWinningStatistics();
+
+    OutputView.printStatistics(statistics);
+
+    Console.close();
   }
 }
 
