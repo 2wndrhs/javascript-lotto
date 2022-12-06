@@ -27,7 +27,15 @@ class GameController {
     InputView.readWinningNumbers(this.#onInputWinningNumbers.bind(this));
   }
 
-  #onInputWinningNumbers(numbers) {}
+  #onInputWinningNumbers(numbers) {
+    this.#inputBonusNumber();
+  }
+
+  #inputBonusNumber() {
+    InputView.readBonusNumber(this.#onInputBonusNumber.bind(this));
+  }
+
+  #onInputBonusNumber(number) {}
 }
 
 module.exports = GameController;
