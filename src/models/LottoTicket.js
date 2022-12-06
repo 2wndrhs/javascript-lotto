@@ -1,8 +1,9 @@
 const Lotto = require('../Lotto');
 const WinningStatistics = require('./WinningStatistics');
 
-const LottoNumberGenerator = require('../utils/LottoNumberGenerator');
 const { LOTTO_BASE } = require('../utils/constants');
+const LottoNumberGenerator = require('../utils/LottoNumberGenerator');
+const { validate, isPurchaseInput } = require('../utils/Validator');
 
 class LottoTicket {
   #ticket;
@@ -12,6 +13,7 @@ class LottoTicket {
   #bonusNumber;
 
   constructor(amount) {
+    validate(amount, isPurchaseInput);
     this.#ticket = LottoTicket.issue(amount);
   }
 
