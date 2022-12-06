@@ -28,6 +28,8 @@ class GameController {
   }
 
   #onInputWinningNumbers(numbers) {
+    this.#lottoTicket.setWinningNumbers(numbers);
+
     this.#inputBonusNumber();
   }
 
@@ -35,7 +37,15 @@ class GameController {
     InputView.readBonusNumber(this.#onInputBonusNumber.bind(this));
   }
 
-  #onInputBonusNumber(number) {}
+  #onInputBonusNumber(number) {
+    this.#lottoTicket.setBonusNumber(number);
+
+    this.#printWinningStatistics();
+  }
+
+  #printWinningStatistics() {
+    const statistics = this.#lottoTicket.getWinningStatistics();
+  }
 }
 
 module.exports = GameController;

@@ -5,6 +5,33 @@ const LOTTO_BASE = Object.freeze({
   SIZE: 6,
 });
 
+const LOTTO_RANKING = Object.freeze({
+  FIRST: 1,
+  SECOND: 2,
+  THIRD: 3,
+  FOURTH: 4,
+  FIFTH: 5,
+});
+
+const LOTTO_RESULT_MESSAGES = Object.freeze({
+  [LOTTO_RANKING.FIFTH]: '3개 일치',
+  [LOTTO_RANKING.FOURTH]: '4개 일치',
+  [LOTTO_RANKING.THIRD]: '5개 일치',
+  [LOTTO_RANKING.SECOND]: '5개 일치, 보너스 볼 일치',
+  [LOTTO_RANKING.FIRST]: '6개 일치',
+});
+
+const LOTTO_PRIZES = Object.freeze({
+  [LOTTO_RANKING.FIFTH]: 5_000,
+  [LOTTO_RANKING.FOURTH]: 50_000,
+  [LOTTO_RANKING.THIRD]: 1_500_000,
+  [LOTTO_RANKING.SECOND]: 30_000_000,
+  [LOTTO_RANKING.FIRST]: 2_000_000_000,
+});
+
 module.exports = {
   LOTTO_BASE,
+  LOTTO_RANKING,
+  LOTTO_RESULT_MESSAGES,
+  LOTTO_PRIZES,
 };
