@@ -7,6 +7,10 @@ class GameController {
   #lottoTicket;
 
   start() {
+    this.#inputPurchaseAmount();
+  }
+
+  #inputPurchaseAmount() {
     InputView.readPurchaseAmount(this.#onInputPurchaseAmount.bind(this));
   }
 
@@ -15,7 +19,15 @@ class GameController {
 
     const ticket = this.#lottoTicket.toString();
     OutputView.printTicket(ticket);
+
+    this.#inputWinningNumbers();
   }
+
+  #inputWinningNumbers() {
+    InputView.readWinningNumbers(this.#onInputWinningNumbers.bind(this));
+  }
+
+  #onInputWinningNumbers(numbers) {}
 }
 
 module.exports = GameController;
