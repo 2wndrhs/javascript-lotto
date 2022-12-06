@@ -19,9 +19,7 @@ class LottoTicket {
     const count = Number(amount) / LOTTO_BASE.PRICE;
     const toLotto = (numbers) => new Lotto(numbers);
 
-    return Array.from({ length: count }, LottoNumberGenerator.generate).map(
-      toLotto,
-    );
+    return Array.from({ length: count }, LottoNumberGenerator.generate).map(toLotto);
   }
 
   setWinningNumbers(numbers) {
@@ -33,11 +31,7 @@ class LottoTicket {
   }
 
   getWinningStatistics() {
-    return WinningStatistics.generate(
-      this.#ticket,
-      this.#winningNumbers,
-      this.#bonusNumber,
-    );
+    return WinningStatistics.generate(this.#ticket, this.#winningNumbers, this.#bonusNumber);
   }
 
   toString() {
