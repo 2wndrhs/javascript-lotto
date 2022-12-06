@@ -12,6 +12,10 @@ class Lotto {
     }
   }
 
+  toString() {
+    return `[${this.#numbers.join(', ')}]`;
+  }
+
   // TODO: 추가 기능 구현
 }
 

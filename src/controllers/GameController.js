@@ -1,20 +1,20 @@
-const LottoTicketIssuer = require('../models/LottoTicketIssuer');
+const LottoTicket = require('../models/LottoTicket');
 
 const InputView = require('../views/InputView');
+const OutputView = require('../views/OutputView');
 
 class GameController {
-  #lottoTicketIssuer;
-
-  constructor() {
-    this.#lottoTicketIssuer = new LottoTicketIssuer();
-  }
+  #lottoTicket;
 
   start() {
     InputView.readPurchaseAmount(this.#onInputPurchaseAmount.bind(this));
   }
 
   #onInputPurchaseAmount(amount) {
-    this.#lottoTicketIssuer.issue(amount);
+    this.#lottoTicket = new LottoTicket(amount);
+
+    const ticket = this.#lottoTicket.toString();
+    OutputView.printTicket(ticket);
   }
 }
 
